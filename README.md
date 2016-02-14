@@ -17,7 +17,7 @@ Features:
 - Row of stop buttons + stop all tracks.
 - Row of select track button + select master.
 - Toggle button to show / hide the browser.
-- Toggle button to toggle the detail view. If you tap twice the detail view is collapsed.
+- Toggle button to toggle the detail view. If you tap twice the detail view will be hidden.
 - The remaining pads can be MIDI mapped. **[in progress]**
 
 Installation
@@ -25,10 +25,13 @@ Installation
 
 Download or clone this repository. Copy the `Launchpad_Simple` folder to the MIDI Remote Scripts folder of Ableton Live.  
 
-On Mac OS you can find this folder here: `/Applications/Ableton Live 9 Suite.app/Contents/App-Resources/MIDI Remote Scripts/`  
-On Windows: `C:\\ProgramData\Ableton\Live x.x\Resources\MIDI Remote Scripts\`
+On Mac OS you can find this folder here:  
+> `/Applications/Ableton Live 9 Suite.app/Contents/App-Resources/MIDI Remote Scripts/`
 
-[How to install a third-party Remote Script? (on ableton.com)](https://www.ableton.com/en/help/article/install-third-party-remote-script/)
+On Windows:  
+> `C:\\ProgramData\Ableton\Live x.x\Resources\MIDI Remote Scripts\`
+
+[ableton.com: How to install a third-party Remote Script?](https://www.ableton.com/en/help/article/install-third-party-remote-script/)
 
 
 Additionally, on Mac OS X you can simply execute `copy_scipts.command`, it will automatically copy the scripts for you.
@@ -53,7 +56,9 @@ Disclaimer
 These scripts are only tested on my system. Use at your own risk!
 
 Currently I know these work with Ableton Live 9.6 on Mac OS X El Capitan (10.11.3) and the Launchpad Mini. Let me now if the scripts work or break on other systems.  
-It is not unlikely that these scripts do not work with Live 9.5: Live 9.6 uses a newer version of Python (2.7) which offers different features. I only test my system.
+It will likely work on other versions of Mac OS and Windows. But it is not unlikely that it won't work with Live 9.5: Live 9.6 uses a newer version of Python (2.7) which offers different features. I only test on my own system.
+
+Feel free to let me know if the scripts do or do not work on other systems.
 
 Contact
 ---
