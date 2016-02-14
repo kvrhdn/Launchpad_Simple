@@ -21,11 +21,6 @@ class LaunchpadSimple( ControlSurface ):
         ControlSurface.__init__( self, c_instance )
 
         with self.component_guard():
-# TODO
-            # self._suppress_send_midi = True
-            # self._suppress_session_highlght = True
-# TODO
-
             self._suggested_input_port = 'Launchpad'
             self._suggested_output_port = 'Launchpad'
 
@@ -92,20 +87,6 @@ class LaunchpadSimple( ControlSurface ):
             button_select_master.set_on_off_values( AMBER_FULL, AMBER_THIRD )
             self._mixer.set_master_select_button( button_select_master )
 
-            # make remaining pads assignable
-# TODO
-            for row in range( ROW_SELECT + 1, 8 ):
-                for col in range( 8 ):
-                    button = matrix.get_button( col, row )
-                    button.set_on_off_values( AMBER_THIRD, LED_OFF )
-                    button.turn_off()
-                    button.add_value_listener( self._button_value_listener )
-
-# This doesn't seem to work because midi mapping gets priority?
-# Original scripts disable blinking when in user mode...
-
-# TODO
-
             # delete clip button
             self._delete_button = top_buttons[ INDEX_DELETE_BUTTON ]
             self._delete_button.set_on_off_values( RED_BLINK, RED_THIRD )
@@ -146,23 +127,11 @@ class LaunchpadSimple( ControlSurface ):
         self._session = None
         self._mixer = None
 
-# TODO
-    # def refresh_state( self ):
-    #     ControlSurface.refresh_state( self )
-    #     self.schedule_message( 5, self._update_hardware )
-
-    # def _update_hardware( self ):
-    #     pass
-# TODO
-
     def receive_midi( self, midi_bytes ):
         if self._del_pressed and self._delete_clip( midi_bytes ):
             return
         else:
             ControlSurface.receive_midi( self, midi_bytes )
-
-    def _button_value_listener( self, value ):
-        pass
 
     def _delete_value_listener( self, value ):
         self._del_pressed = ( value == 127 )

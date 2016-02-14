@@ -33,7 +33,6 @@ On Windows:
 
 [ableton.com: How to install a third-party Remote Script?](https://www.ableton.com/en/help/article/install-third-party-remote-script/)
 
-
 Additionally, on Mac OS X you can simply execute `copy_scipts.command`, it will automatically copy the scripts for you.
 
 To do
@@ -41,14 +40,21 @@ To do
 
 Known bugs:
 
-- General purpose pads blink when turned off. Makes them kind of useless :/
-- Disconnect and reconnect is not handled properly.
-- Session highlight is active, even if Launchpad is not connected yet. Same/similar problem as above.
+**If you MIDI map a general purpose pad, they will blink when turned off.**
 
-Possible improvements:
+Hypothesis: this is caused because, by default, Live sends out the value 0 to turn off an external button. The Launchpad though will blink (if blinking in general is activated) when it receives value 0. A pad is turned off completely by sending the value 4.  
+I can't seem to intercept this message, it seems that MIDI-mapped buttons bypass the entire MIDI remote script framework.
 
-- QuantizationToggle: is it possible to store the secondary value in the Live set itself? Currently the secondary value defaults to `q_no_q` (or `q_1_bar` if `q_no_q` is already set).
-- Hold DetailViewToggle to hide Detail view entirely. Double tap is a bit awkward.
+This problem is 'solved' in the original Launchpad script by disabling blinking in User Mode 1 and 2, which isn't a feasible solution in this case.
+
+**Disconnect and reconnect is not handled properly.**
+
+Session highlight is active even if no Launchpad is connected. Additionally when disconnecting and reconnecing the Launchpad isn't completely updated.
+
+Extra features:
+
+- QuantizationToggle: is it possible to store the secondary value in the Live set itself? Currently the secondary value defaults to `q_no_q` (or `q_1_bar` if `q_no_q` is already set in that set).
+- Hold DetailViewToggle for a sec to hide Detail view. Double tap is a bit awkward.
 
 Disclaimer
 ---
