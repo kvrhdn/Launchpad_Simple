@@ -40,7 +40,7 @@ To do
 
 Known bugs:
 
-**If you MIDI map a general purpose pad, they will blink when turned off.**
+**If you MIDI map a pad, they will blink when turned off.**
 
 Hypothesis: this is caused because, by default, Live sends out the value 0 to turn off an external button. The Launchpad though will blink (if blinking in general is activated) when it receives value 0. A pad is turned off completely by sending the value 4.  
 I can't seem to intercept this message, it seems that MIDI-mapped buttons bypass the entire MIDI remote script framework.
